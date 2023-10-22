@@ -1,3 +1,5 @@
+//This file is used to scan and connect to nearby bluetooth devices.
+
 import 'package:flutter/material.dart';//to implement Material Design
 import 'package:flutter_blue/flutter_blue.dart';//flutter plugin for using bluetooth
 
