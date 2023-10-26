@@ -1,9 +1,13 @@
-//Flutter plugin to implement Material Design.
+//This file is used for sign-in existing user or registering new user.
+//user mail id should end with @gcek.ac.in to sign-in or register.
+
+// Flutter plugin to implement Material Design.
 import 'package:flutter/material.dart';
 //Flutter plugin to use the Firebase Authentication API.
 import 'package:firebase_auth/firebase_auth.dart';
 //importing file to verify email and password
 import 'package:smartlocker1_3/auth.dart';
+
 //creating class for setting up login page
 class LoginPage extends StatefulWidget {
   //creating a constant constructor
@@ -52,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget _entryField(
       String title,
       TextEditingController controller,
-      ){//for entering login credentials
+      ){//text field for entering login credentials
     return TextField(
       controller: controller,
       decoration: InputDecoration(
@@ -69,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
     return ElevatedButton(
         onPressed: () async {
           if (!_controllerEmail.text.endsWith('@gcek.ac.in')) {
-            //checking mail entered has gcek handle
+            //checking mail entered have gcek handle
             showDialog(
               context: context,
               builder: (BuildContext context) {

@@ -1,5 +1,5 @@
 ## Smart Lock
-This is a android application to control acompletely keyless smart lock system. This app 
+This is a android application to control a completely keyless smart lock system. This app 
 uses firebase authentication to validate users and blynk cloud service for controlling the sate of 
 the lock. Users can only log in/ sign in using gcek mail handle and a unique password. 
 
@@ -17,4 +17,4 @@ standards like OAuth 2.0 and OpenID Connect, so it can be easily integrated with
 
 
 ## Blynk 
-Blynk is an online IoT service used to control 
+Blynk is an online IoT service used to control the lock state.

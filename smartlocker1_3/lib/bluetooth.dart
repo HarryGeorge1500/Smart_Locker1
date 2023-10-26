@@ -1,31 +1,37 @@
 //This file is used to scan and connect to nearby bluetooth devices.
 
-import 'package:flutter/material.dart';//to implement Material Design
-import 'package:flutter_blue/flutter_blue.dart';//flutter plugin for using bluetooth
-
-import 'controller.dart';//file to control lock
+//flutter plugin to implement Material Design
+import 'package:flutter/material.dart';
+//flutter plugin for using bluetooth
+import 'package:flutter_blue/flutter_blue.dart';
+//importing file to control lock state
+import 'controller.dart';
 
 class BluetoothDeviceListScreen extends StatefulWidget {
-  const BluetoothDeviceListScreen({super.key});//creating object inside for class 'BluetoothDeviceListScreenState'
+  const BluetoothDeviceListScreen({super.key});
 
   @override
   _BluetoothDeviceListScreenState createState() => _BluetoothDeviceListScreenState();
 }
-//class  called for listing,connecting and refreshing existing list of near by bluetooth device
+//class for listing,connecting and refreshing existing list of near by bluetooth device
 class _BluetoothDeviceListScreenState extends State<BluetoothDeviceListScreen> {
   FlutterBlue flutterBlue = FlutterBlue.instance;//creating an instance for flutterblue package
-  List<BluetoothDevice> devicesList = [];//creating an empty list to store name of near by blutooth devices
+  List<BluetoothDevice> devicesList = [];//creating an empty list to store name of near by bluetooth devices
 
   @override
   void initState() {
-    super.initState();//for calling function startScanning
+    super.initState();
+    //calling function for scanning nearby bluetooth devices
     _startScanning();
   }
-//identify near by network and add those to list
+//identify near by devices and add them to a list
   void _startScanning() {
     flutterBlue.scanResults.listen((List<ScanResult> scanResults) {
       for (ScanResult result in scanResults) {
         if (!devicesList.contains(result.device) && result.device.name != null) {
+          //checking if the found device already exist on the list and the
+          // found device has a name. Only a new device with a name can be
+          // added to the list
           setState(() {
             devicesList.add(result.device);
           });
@@ -45,7 +51,7 @@ class _BluetoothDeviceListScreenState extends State<BluetoothDeviceListScreen> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Connection Successful'),
+            title: const Text('Connection Successful'),
             content: Text('Connected to ${device.name ?? "Unnamed Device"}'),
             actions: <Widget>[
               TextButton(

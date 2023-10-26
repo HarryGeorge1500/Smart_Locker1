@@ -1,5 +1,6 @@
 // this file is used to send and receive data to and from firebase server
 //corresponding api key, app id etc are provided in this file.
+
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
